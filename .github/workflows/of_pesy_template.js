@@ -3,14 +3,14 @@ const Path = require("path");
 
 const name_to_string = name => {
   switch (name) {
-    case "MorphPesyTemplate":
-      return "<PACKAGE_NAME_UPPER_CAMEL>";
-    case "morph_pesy_template":
-      return "<PACKAGE_NAME_FULL>";
-    case "./library":
-      return "<PUBLIC_LIB_NAME>";
-    case "./test":
-      return "<TEST_LIB_NAME>";
+    case "<PACKAGE_NAME_UPPER_CAMEL>":
+      return "MorphPesyTemplate";
+    case "<PACKAGE_NAME_FULL>":
+      return "morph_pesy_template";
+    case "<PUBLIC_LIB_NAME>":
+      return "./library";
+    case "<TEST_LIB_NAME>":
+      return "./test";
     default:
       return name;
   }
@@ -18,27 +18,27 @@ const name_to_string = name => {
 
 const name_to_filename = name => {
   switch (name) {
-    case "MorphPesyTemplate":
-      return "__PACKAGE_NAME_UPPER_CAMEL__";
-    case "morph_pesy_template":
-      return "__PACKAGE_NAME_FULL__";
-    case "library":
-      return "__PUBLIC_LIB_NAME__";
-    case "test":
-      return "__TEST_LIB_NAME__";
+    case "__PACKAGE_NAME_UPPER_CAMEL__":
+      return "MorphPesyTemplate";
+    case "__PACKAGE_NAME_FULL__":
+      return "morph_pesy_template";
+    case "__PUBLIC_LIB_NAME__":
+      return "library";
+    case "__TEST_LIB_NAME__":
+      return "test";
     default:
       return name;
   }
 };
 
 const names = [
-  "MorphPesyTemplate",
-  "morph_pesy_template",
-  "./library",
-  "./test"
+  "<PACKAGE_NAME_UPPER_CAMEL>",
+  "<PACKAGE_NAME_FULL>",
+  "<PUBLIC_LIB_NAME>",
+  "<TEST_LIB_NAME>"
 ];
 
-const fileNames = ["MorphPesyTemplate", "morph_pesy_template"];
+const fileNames = ["__PACKAGE_NAME_UPPER_CAMEL__", "__PACKAGE_NAME_FULL__"];
 
 const packageJson = names.reduce(
   (acc, curr) => {
