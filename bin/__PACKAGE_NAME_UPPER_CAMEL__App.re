@@ -2,7 +2,7 @@ Fmt_tty.setup_std_outputs();
 Logs.set_level(Some(Logs.Info));
 Logs.set_reporter(Logs_fmt.reporter());
 
-let handler = (request: Morph.Request.t) => {
+let handler = (request: Morph.Request.t(string)) => {
   open Morph;
 
   let path_parts =
@@ -17,12 +17,12 @@ let handler = (request: Morph.Request.t) => {
   | (_, ["greet", name]) =>
     Morph.Response.text("Hello " ++ name ++ "!", Response.empty)
   | (`GET, ["static", ...file_path]) =>
-    Morph.Response.static(file_path |> String.concat("/"), Response.empty)
+    Morph_base.Response.static(file_path |> String.concat("/"), Response.empty)
   | (_, _) => Response.not_found(Response.empty)
   };
 };
 
-let http_server = Morph_server_http.make();
+let http_server = Morph_server_http.make(~port=4000, ());
 
 Morph.start(
   ~servers=[http_server],
