@@ -11,7 +11,7 @@
   "buildDirs": {
     "test": {
       "imports": [
-        "Library = require('.<PUBLIC_LIB_NAME>')",
+        "Library = require('<PUBLIC_LIB_NAME>')",
         "Rely = require('rely/lib')"
       ],
       "flags": [
@@ -23,7 +23,7 @@
     },
     "testExe": {
       "imports": [
-        "Test = require('.<TEST_LIB_NAME>')"
+        "Test = require('<TEST_LIB_NAME>')"
       ],
       "bin": {
         "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.exe": "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.re"
@@ -40,7 +40,7 @@
     },
     "bin": {
       "imports": [
-        "Library = require('.<PUBLIC_LIB_NAME>')",
+        "Library = require('<PUBLIC_LIB_NAME>')",
         "Morph = require('morph')",
         "Morph_base = require('morph_base')",
         "Morph_server_http = require('morph_server_http')",
