@@ -8,6 +8,9 @@
       "ODOC_SYNTAX": "re"
     }
   },
+  "pesy": {
+    "azure-project": "reason-native-web/morph"
+  },
   "buildDirs": {
     "test": {
       "imports": [
@@ -78,6 +81,6 @@
     "refmterr": "*",
     "ocaml": "~4.8.0",
     "@opam/odoc": "*",
-    "@pesy/esy-pesy": "0.1.0-alpha.7"
+    "@pesy/esy-pesy": "0.1.0-alpha.9"
   }
 }
