@@ -5,14 +5,14 @@ steps:
   - template: utils/use-esy.yml
   - script: "npm install -g pesy@next"
     displayName: "install pesy" 
-  - script: "pesy --init $(Pipeline.Workspace)/hello-reason --template=esy/pesy-reason-template#$(Build.SourceBranch)"
+  - script: "pesy --init $(Pipeline.Workspace)/test-project --template=reason-native-web/morph-hello-world-pesy-template#$(Build.SourceBranch)"
     displayName: "Initialize pesy template"
   - script: "esy start"
     displayName: "esy start (running the boilerplate app)"
-    workingDirectory: $(Pipeline.Workspace)/hello-reason
+    workingDirectory: $(Pipeline.Workspace)/test-project
   - script: "esy test"
     displayName: "Test command"
-    workingDirectory: $(Pipeline.Workspace)/hello-reason
+    workingDirectory: $(Pipeline.Workspace)/test-project
   - template: utils/publish-build-cache.yml
   - task: PublishBuildArtifacts@1  
     displayName: 'Upload project directory'
