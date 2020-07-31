@@ -1,20 +1,21 @@
 {
   "name": "<PACKAGE_NAME_FULL>",
   "version": "0.1.0",
-  "description": "Starter Reason Morph Esy Pesy Project",
+  "description": "Starter Morph Project",
   "esy": {
-    "build": "refmterr dune build -p #{self.name}",
+    "build": "dune build -p #{self.name}",
+    "buildDev": "pesy build",
     "buildEnv": {
       "ODOC_SYNTAX": "re"
     }
   },
   "pesy": {
-    "azure-project": "reason-native-web/morph"
+    "azure-project": "prometheansacrifice/morph-hello-world-pesy-template",
+    "github": "reason-native-web/morph-hello-world-pesy-template"
   },
   "buildDirs": {
     "test": {
       "imports": [
-        "Library = require('<PUBLIC_LIB_NAME>')",
         "Rely = require('rely/lib')"
       ],
       "flags": [
@@ -32,21 +33,10 @@
         "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.exe": "Run<PACKAGE_NAME_UPPER_CAMEL>Tests.re"
       }
     },
-    "library": {
-      "imports": [
-        "Morph = require('morph')",
-        "Mtime = require('mtime')",
-        "Mtime_clock = require('mtime/clock/os')",
-        "Logs = require('logs')",
-        "Lwt = require('lwt')"
-      ]
-    },
     "bin": {
       "imports": [
-        "Library = require('<PUBLIC_LIB_NAME>')",
+        "Routes = require('routes')",
         "Morph = require('morph')",
-        "Morph_base = require('morph_base')",
-        "Morph_server_http = require('morph_server_http')",
         "Logs = require('logs')",
         "Logs_fmt = require('logs/fmt')",
         "Fmt_tty = require('fmt/tty')",
@@ -66,21 +56,22 @@
     "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html"
   },
   "dependencies": {
+    "@opam/routes": "*",
     "@opam/dune": "*",
-    "@reason-native/rely": "*",
     "@esy-ocaml/reason": "*",
-    "ocaml": "~4.8.0",
-    "@reason-native-web/morph": "^0.3.0",
-    "@reason-native-web/morph_base": "^0.3.0",
-    "@reason-native-web/morph_server_http": "^0.3.0",
-    "@opam/mtime": "*",
-    "@opam/uri": "*"
+    "ocaml": "~4.10.0",
+    "@reason-native-web/morph": "^0.6.1",
+    "@opam/uri": "*",
+    "@pesy/esy-pesy": "0.1.0-alpha.11"
   },
   "devDependencies": {
+    "@reason-native/rely": "*",
     "@opam/merlin": "*",
     "refmterr": "*",
-    "ocaml": "~4.8.0",
-    "@opam/odoc": "*",
-    "@pesy/esy-pesy": "0.1.0-alpha.9"
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam",
+    "@opam/odoc": "*"
+  },
+  "resolutions": {
+    "@opam/zarith": "1.7"
   }
 }
